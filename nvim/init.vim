@@ -81,9 +81,11 @@ call plug#begin()
 
 " A strengthen tool for syntax hight
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
 
 " vim theme
-Plug 'Mofiqul/dracula.nvim'
+Plug 'projekt0n/github-nvim-theme', { 'tag': '0.0.7' }
+" or                                { 'branch': '0.0.x' }
 
 """ make my programming convinent
 " code snippets
@@ -347,8 +349,6 @@ func! CompileRunGcc()
         endif
 endfunc
 
-
-
 " Generate Database of Compilation's Info 
 function! s:generate_compile_commands()
         if empty(glob('CMakeLists.txt'))
@@ -362,10 +362,6 @@ function! s:generate_compile_commands()
                 \ -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -S . -B .compile_info'
 endfunction
 command! -nargs=0 Gcmake :call s:generate_compile_commands()
-
-
-
-
 
 " ====================
 " === set with lua ===
@@ -428,48 +424,17 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 EOF
 
-lua << EOF
-local dracula = require("dracula")
-dracula.setup({
-  -- customize dracula color palette
-  colors = {
-    bg = "#282A36",
-    fg = "#F8F8F2",
-    selection = "#44475A",
-    comment = "#6272A4",
-    red = "#FF5555",
-    orange = "#FFB86C",
-    yellow = "#F1FA8C",
-    green = "#50fa7b",
-    purple = "#BD93F9",
-    cyan = "#8BE9FD",
-    pink = "#FF79C6",
-    bright_red = "#FF6E6E",
-    bright_green = "#69FF94",
-    bright_yellow = "#FFFFA5",
-    bright_blue = "#D6ACFF",
-    bright_magenta = "#FF92DF",
-    bright_cyan = "#A4FFFF",
-    bright_white = "#FFFFFF",
-    menu = "#21222C",
-    visual = "#3E4452",
-    gutter_fg = "#4B5263",
-    nontext = "#3B4048",
-  },
-  -- show the '~' characters after the end of buffers
-  show_end_of_buffer = true, -- default false
-  -- use transparent background
-  transparent_bg = true, -- default false
-  -- set italic comment
-  italic_comment = true, -- default false
-  -- overrides the default highlights see `:h synIDattr`
-  overrides = {
-    -- Examples
-    -- NonText = { fg = dracula.colors().white }, -- set NonText fg to white
-    -- NvimTreeIndentMarker = { link = "NonText" }, -- link to NonText highlight
-    -- Nothing = {} -- clear highlight of Nothing
-  },
-})
-EOF
-colorscheme dracula
+" Example config in VimScript
+" NOTE: Configuration needs to be set BEFORE loading the color scheme with `colorscheme` command
+let g:github_function_style = "italic"
+let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
+let g:github_transparent = 0
 
+" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:github_colors = {
+  \ 'hint': 'orange',
+  \ 'error': '#ff0000'
+\ }
+
+" Load the colorscheme
+colorscheme github_dark

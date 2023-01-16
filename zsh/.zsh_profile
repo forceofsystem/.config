@@ -9,3 +9,8 @@ export PATH="$PATH:/Users/zzx/code/flutter/bin"
 export LDFLAGS="-L/opt/homebrew/opt/binutils/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/binutils/include"
 export PROMPT='%n@%m:%~# '
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/zhangzhixiao/Library/Application Support/JetBrains/Toolbox/scripts"
