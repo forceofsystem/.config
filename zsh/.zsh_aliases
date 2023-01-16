@@ -1,0 +1,10 @@
+# My common aliases
+alias c=clear
+alias l="ls -CF"
+alias ll='ls -alF'
+alias la='ls -A'
+alias sudo="sudo -E"
+alias e=exit
+alias vi=nvim
+alias blog="~/code/shell/blog.sh"
+alias upload="/Applications/PicGo.app/Contents/MacOS/PicGo upload"

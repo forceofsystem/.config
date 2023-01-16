@@ -1,0 +1,11 @@
+# Enviroment
+export LS_OPTIONS='--color=auto'
+export GREP_OPTIONS='--color=auto'
+export CLICOLOR='Yes'
+export LSCOLORS="ExGxFxdaCxDaDahbadeche"
+export EDITOR=nvim
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="$PATH:/Users/zzx/code/flutter/bin"
+export LDFLAGS="-L/opt/homebrew/opt/binutils/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/binutils/include"
+export PROMPT='%n@%m:%~# '
